@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="source/vue.js"></script>
+	</head>
+	<body>
+		<div id="box">
+			<input type="text" v-model="msg1"/>
+			<select v-model="opt">
+				<option value="+" >+</option>
+				<option value="-" >-</option>
+				<option value="*" >*</option>
+				<option value="/" >/</option>
+			</select>
+			<input type="text" v-model="msg2" />
+			<input type="button"  value="=" @click="calculate"/>
+			<input type="text" v-model="msg3"/>
+		</div>
+		
+		<script type="text/javascript">
+			var vm = new Vue({
+				el:'#box',
+				data:{
+					msg1:null,
+					msg2:null,
+					msg3:null,
+					opt:'+'
+				},
+				methods:{
+					calculate(){
+						if(this.opt == '+'){
+							this.msg3 = parseInt(this.msg1) + parseInt(this.msg2)
+						}
+						else if(this.opt == '-'){
+							this.msg3 = parseInt(this.msg1) - parseInt(this.msg2)
+						}
+						else if(this.opt == '*'){
+							this.msg3 = parseInt(this.msg1)*parseInt(this.msg2)
+						}
+						else{
+							this.msg3 = parseInt(this.msg1) / parseInt(this.msg2)
+						}
+					}
+				}
+			})
+		</script>
+	
+	</body>
+</html>
